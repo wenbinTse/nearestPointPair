@@ -1,0 +1,49 @@
+﻿<Window x:Class="NearestPoints.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="24,24">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="PointsNum" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="120" PreviewTextInput="PointsNum_PreviewTextInput" Padding="8,8" InputMethod.IsInputMethodEnabled="False"/>
+            <Button x:Name="AddPoints" Content="随机生成点" VerticalAlignment="Top" Grid.Column="1" Margin="24,0" Padding="8,8" Background="Black" Foreground="White" Click="AddPoints_Click"/>
+            <Button x:Name="Run" Content="运行" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="2" Padding="8,8" Foreground="White" Background="Black" Click="Run_Click"/>
+            <Label x:Name="result" Grid.Column="3" Padding="8,8" Margin="24 0"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0 16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Canvas x:Name="xAxis" Grid.Row="0" Background="#FFC78A8A"></Canvas>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Canvas x:Name="yAxis" Grid.Row="0" Background="#FFC78A8A"></Canvas>
+                <Canvas Grid.Column="1" x:Name="canvas"  Margin="0,0,0,0" Background="#FFCDC1C1" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" SizeChanged="canvas_SizeChanged" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
