@@ -11,10 +11,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -29,7 +29,7 @@
             <Button x:Name="Run" Content="运行" HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="2" Padding="8,8" Foreground="White" Background="Black" Click="Run_Click"/>
             <Label x:Name="result" Grid.Column="3" Padding="8,8" Margin="24 0"/>
         </Grid>
-        <Grid Grid.Row="1" Margin="0 16">
+        <Grid Grid.Row="0" Margin="0 16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
                 <RowDefinition/>

@@ -87,7 +87,11 @@ namespace NearestPoints
 
         private void drawPoints()
         {
+            int i = 0;
             foreach (Point point in points.arr) {
+                if (i == 10000) // 为了性能考虑， 最多只绘制10000个点（多了也看不清）
+                    break;
+                i++;
                 drawPoint(point.x, point.y, Colors.Black);
             }
         }
@@ -126,6 +130,7 @@ namespace NearestPoints
             result.Content = "最短距离是：" + ans + " 对应点为红色点";
             labelPoint(points.arr[points.p1]);
             labelPoint(points.arr[points.p2]);
+            points.ordinaryMethod();
         }
 
         private void canvas_SizeChanged(object sender, SizeChangedEventArgs e)

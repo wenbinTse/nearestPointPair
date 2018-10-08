@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace NearestPoints
 {
@@ -60,9 +61,14 @@ namespace NearestPoints
         /// <returns></returns>
         public double getSmallestDistant()
         {
+            Stopwatch s = new Stopwatch();
+            s.Start();
             arr.Sort(cmp);
             List<int> t = new List<int>();
-            return dfs(0, arr.Count - 1, t).distance;
+            double result = dfs(0, arr.Count - 1, t).distance;
+            s.Stop();
+            Console.WriteLine(arr.Count + ": nlgn:" + (double)s.ElapsedTicks / 10000);
+            return result;
         }
 
         private Ans dfs(int l, int r, List<int> t)
@@ -111,12 +117,16 @@ namespace NearestPoints
         /// <returns></returns>
         public double ordinaryMethod()
         {
+            Stopwatch s = new Stopwatch();
+            s.Start();
             double MIN = INF;
             for(int i = 0; i < arr.Count; i++)
                 for (int j = i + 1; j < arr.Count; j++)
                 {
                     MIN = Math.Min(MIN, distance(arr[i], arr[j]));
                 }
+            s.Stop();
+            Console.WriteLine(arr.Count + ": n^2:" + (double)s.ElapsedTicks / 10000);
             return MIN;
         }
     }
